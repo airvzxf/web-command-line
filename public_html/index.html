@@ -19,12 +19,45 @@
 
         .float {
             padding: var(--general-padding);
-            border: 1px solid red;
+            border-bottom: 1px solid black;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: aliceblue;
+        }
+
+        @media only screen and (min-width: 0) and (max-width: 175px) {
+            :root {
+                --top-margin-pre-tag: 120px;
+            }
+        }
+
+        @media only screen and (min-width: 175px) and (max-width: 272px) {
+            :root {
+                --top-margin-pre-tag: 100px;
+            }
+        }
+
+        @media only screen and (min-width: 272px) and (max-width: 330px) {
+            :root {
+                --top-margin-pre-tag: 80px;
+            }
+        }
+
+        @media only screen and (min-width: 330px) and (max-width: 621px) {
+            :root {
+                --top-margin-pre-tag: 60px;
+            }
+        }
+
+        @media only screen and (min-width: 621px) {
+            :root {
+                --top-margin-pre-tag: 40px;
+            }
         }
 
         pre {
-            border: 1px solid green;
-            margin: 0;
+            margin: var(--top-margin-pre-tag) 0 0 0;
             padding: var(--general-padding);
             white-space: pre-wrap;
             word-break: break-word;
