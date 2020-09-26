@@ -1,0 +1,25 @@
+{
+  "name": "Bash: run command line via Web",
+  "short_name": "web command line",
+  "description": "Run command line for Bash via Web, means that it execute in this server the Linux commands.",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "lang": "en-US",
+  "dir": "ltr",
+  "orientation": "any",
+  "start_url": "./",
+  "scope": "."
+}
