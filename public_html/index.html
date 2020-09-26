@@ -56,14 +56,15 @@
     })
 
     function ajaxRequest() {
-        const xml_http = new XMLHttpRequest();
-        xml_http.onreadystatechange = function () {
+        const http = new XMLHttpRequest();
+        http.open('POST', 'shell.sh', true);
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        http.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 display.innerHTML = this.responseText;
             }
         };
-        xml_http.open("GET", "shell.sh?parameter1=a&param2=b", true);
-        xml_http.send();
+        http.send('parameter1=a&param2=b');
     }
 </script>
 </body>
