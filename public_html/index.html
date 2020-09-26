@@ -3,18 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>Run bash commands</title>
+    <meta content="Israel Roldan" name="author">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style media="handheld, projection, screen" rel="stylesheet">
+        :root {
+            --general-padding: 10px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: monospace, sans-serif;
+            font-size: 12pt;
+        }
+
+        .float {
+            padding: var(--general-padding);
+            border: 1px solid red;
+        }
+
+        pre {
+            border: 1px solid green;
+            margin: 0;
+            padding: var(--general-padding);
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+    </style>
 </head>
 <body>
-<p>
-    <label for="command-box">Command:</label>
-    <input id="command-box" type="text">
-    <button id="command-button" type="submit">Run</button>
-</p>
+<div class="float">
+    <form>
+        <label for="command-box">Command:</label>
+        <input id="command-box" type="text">
+        press [enter] to execute or
+        <button id="command-button" type="submit">Run v1.2</button>
+    </form>
+</div>
 
 <pre id="command-display"></pre>
 
 <script type="application/javascript">
+    let box = document.getElementById('command-box')
+    let button = document.getElementById('command-button')
+    let display = document.getElementById('command-display')
 
+    button.addEventListener('click', event => {
+        event.preventDefault()
+        console.log('You clicked v1.2!')
+        console.log('box:', box.value)
+        ajaxRequest()
+    })
+
+    function ajaxRequest() {
+        const xml_http = new XMLHttpRequest();
+        xml_http.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                display.innerHTML = this.responseText;
+            }
+        };
+        xml_http.open("GET", "shell.sh", true);
+        xml_http.send();
+    }
 </script>
 </body>
 </html>
