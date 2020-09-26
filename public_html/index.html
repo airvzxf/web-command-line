@@ -56,14 +56,16 @@
     })
 
     function ajaxRequest() {
+        let data = new FormData()
+        data.append('two', 'dos')
         const http = new XMLHttpRequest();
-        http.open('GET', 'shell.sh', true);
+        http.open('POST', 'shell.sh', true);
         http.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 display.innerHTML = this.responseText;
             }
         };
-        http.send('one');
+        http.send(data);
     }
 </script>
 </body>
