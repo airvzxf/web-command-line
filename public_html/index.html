@@ -62,7 +62,7 @@
                 display.innerHTML = this.responseText;
             }
         };
-        xml_http.open("GET", "shell.sh", true);
+        xml_http.open("GET", "shell.sh?parameter1=a&param2=b", true);
         xml_http.send();
     }
 </script>
