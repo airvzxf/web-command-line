@@ -5,7 +5,7 @@ function urlDecode() {
   : "${*//+/ }"
   echo -e "${_//%/\\x}"
 }
-set -exv
+set -xv
 COMMAND=$(urlDecode "${QUERY_STRING}")
 echo "Argument #1:  ${1}"
 echo "QUERY_STRING: ${QUERY_STRING}"
