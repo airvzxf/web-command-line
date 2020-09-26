@@ -10,4 +10,4 @@ echo "4: ${4}"
 echo "5: ${5}"
 echo "?: ${?}"
 echo ""
-eval 'ls -lha /usr/bin/'
+eval "${1}"

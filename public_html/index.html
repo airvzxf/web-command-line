@@ -50,22 +50,21 @@
 
     button.addEventListener('click', event => {
         event.preventDefault()
-        console.log('You clicked v1.2!')
-        console.log('box:', box.value)
-        ajaxRequest()
+        if (box.value !== "") {
+            ajaxRequest(box.value)
+        }
     })
 
-    function ajaxRequest() {
-        let data = new FormData()
-        data.append('two', 'dos')
+    function ajaxRequest(parameter) {
+        const url = 'shell.sh?' + parameter
         const http = new XMLHttpRequest();
-        http.open('POST', 'shell.sh', true);
+        http.open('POST', url, true);
         http.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 display.innerHTML = this.responseText;
             }
         };
-        http.send(data);
+        http.send();
     }
 </script>
 </body>
