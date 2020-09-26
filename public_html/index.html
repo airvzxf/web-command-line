@@ -57,14 +57,14 @@
 
     function ajaxRequest() {
         const http = new XMLHttpRequest();
-        http.open('POST', 'shell.sh', true);
-        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        http.open('GET', 'shell.sh?testing', true);
+        // http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         http.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 display.innerHTML = this.responseText;
             }
         };
-        http.send('parameter1=a&param2=b');
+        http.send();
     }
 </script>
 </body>
